@@ -1,0 +1,56 @@
+/* Custom styles for news cards and modal transitions */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f3f4f6; /* Light gray background */
+}
+.news-card, .article-unread {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* NEW: Styles for Read and Unread Articles */
+.article-read {
+    opacity: 0.7; /* Make read articles slightly faded */
+    background-color: #f0f4f8; /* A very light blue-gray background */
+    border-left: 5px solid #a0aec0; /* A subtle left border to indicate read */
+}
+
+/* You can optionally add specific styles for unread, but by default they'll just use .news-card */
+/* Modal and Toast overlay styles */
+.modal-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+/* Specific styling for the modal content itself is mostly handled by Tailwind classes in HTML (e.g., bg-white, rounded-lg, shadow-xl, p-6) */
+
+.toast-show {
+    animation: fadeInOut 3s forwards;
+}
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(20px); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(20px); }
+}
+
+/*
+ * The 'line-clamp' CSS property allows limiting the contents of a block container to a specified number of lines.
+ * It's currently widely supported with the -webkit- prefix.
+ * Including the standard property for future compatibility.
+ */
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* For WebKit and older Blink browsers (Chrome, Safari, Edge, Opera) */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-clamp: 3; /* Standard property, for future browser support */
+}
+
+/* Ensure the main content area has some padding below the header */
+main {
+    padding-top: 1rem; /* Adjust as needed */
+}
